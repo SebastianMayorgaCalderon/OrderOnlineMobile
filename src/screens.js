@@ -11,6 +11,7 @@ const startTabs = () => {
                 root: {
                     bottomTabs: {
                         children: [
+                            
                             {
                                 stack: {
                                     children: [
