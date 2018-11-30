@@ -17,11 +17,12 @@ class LandingScreen extends Component {
         };
     }
     
-    prueba() {
+    prueba=()=> {
         const headers = {Accept: 'application/json', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'};
         Axios.get('http://10.0.2.2:8085/OrderOnlineBackEnd/api/categories',headers).then((response) => {
-            //this.props.addAllCategory(response.body);
-            alert(this.props.todo);
+            this.props.addAllCategory(response.data);
+            //alert(JSON.stringify(this.props));
+            //startTabs();
         }).catch(function (error) {
             alert(error)
         });
@@ -33,6 +34,7 @@ class LandingScreen extends Component {
                 <View style = {{flex:1, justifyContent:'center', backgroundColor: 'rgba(0,0,0,0.5)'}}>
                     <View style = {{ alignItems:'flex-end', marginRight: 20}}>
                         <Text style = {{fontSize: 30, color: 'white'}}> Bienvenido a OrderOnline</Text>
+                        <Text style = {{fontSize: 30, color: 'white'}}>{this.props.categories.length}</Text>
                     </View>
                     <View style = {{ alignItems :'flex-start', marginLeft: 30}}>
                         <Text style={{marginBottom: 3, color: 'white'}}>Correo Electrónico:</Text>
@@ -53,7 +55,7 @@ class LandingScreen extends Component {
 
 const mapStateToProps = state => {
     return {
-      todo: state.todo.todo
+      categories: state.categories.categories
     };
 };
 
