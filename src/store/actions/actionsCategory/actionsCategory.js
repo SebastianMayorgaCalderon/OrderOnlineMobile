@@ -1,9 +1,9 @@
-import { CATEGORY_SELECT,ADD_ALL_CATEGORIES,DESELECT_CATEGORY } from "./categoryActionTypes";
+import { CATEGORY_SELECT, ADD_ALL_CATEGORIES, DESELECT_CATEGORY } from "./categoryActionTypes";
 
 export const selectCategory = (id) => {
     return {
         type: CATEGORY_SELECT,
-        payload: id
+        playload: id
     }
 }
 export const addAllCategory = (categories) => {
