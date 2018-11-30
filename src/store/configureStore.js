@@ -1,9 +1,11 @@
 import { createStore, combineReducers, compose } from 'redux';
+import categoryReducer from './reducers/categoryReducer'
 
 import reducer from './reducers/root';
 
 const rootReducer = combineReducers({
-    todo: reducer
+    todo: reducer,
+    categories: categoryReducer
 });
 
 let composeEnhancers = compose;
