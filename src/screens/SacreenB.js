@@ -8,9 +8,9 @@ class ScreenB extends Component {
     constructor(props) {
         super(props);
     }
-    render() {  
-        const lista= this.props.todo.map((value)=><H1 key = {value.key} text ={value.text}/>);
-        return ( 
+    render() {
+        const lista = this.props.todo.map((value) => <H1 key={value.key} text={value.text} />);
+        return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text> Pantalla B </Text>
                 {lista}
@@ -20,9 +20,9 @@ class ScreenB extends Component {
 }
 const mapStateToProps = state => {
     return {
-      todo: state.todo.todo
+        todo: state.todo.todo
     };
-  };
+};
 const styles = StyleSheet.create({
     selectedTodo: {
         backgroundColor: '#73d67f'

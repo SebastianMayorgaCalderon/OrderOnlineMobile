@@ -8,7 +8,7 @@ const categoryReducer = (state = initialstate, action) => {
         case CATEGORY_SELECT:
             return {
                 ...state,
-                selectedCategory: state.categories.find(item=>item.id===action.payload)
+                selectedCategory: state.categories.find(item=>item.id===action.pLayload)
             }
         case ADD_ALL_CATEGORIES:
             return {
