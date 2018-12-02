@@ -1,6 +1,6 @@
 import { CATEGORY_SELECT, ADD_ALL_CATEGORIES,DESELECT_CATEGORY } from '../actions/actionsCategory/categoryActionTypes';
 const initialstate = {
-    categories: [],
+    list: [],
     selectedCategory: null
 }
 const categoryReducer = (state = initialstate, action) => {
@@ -13,7 +13,7 @@ const categoryReducer = (state = initialstate, action) => {
         case ADD_ALL_CATEGORIES:
             return {
                 ...state,
-                categories: action.data
+                list: action.data
             }
         case DESELECT_CATEGORY:
             return {

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
 import { Navigation } from 'react-native-navigation';
-import LandingScreen from './src/screens/index';
+import LandingScreen from './src/screens/LandingScreen/LandingScreen';
 import ScreenA from './src/screens/ScreenA';
 import ScreenB from './src/screens/SacreenB';
+import CategoriesScreen from './src/screens/CategoriesScreen/CategoriesScreen';
+
 import { Provider } from "react-redux";
 
 import configureStore  from './src/store/configureStore';
@@ -11,6 +13,7 @@ import configureStore  from './src/store/configureStore';
 const store = configureStore();
 
 Navigation.registerComponentWithRedux('OrderOnlineScreen.LandingScreen', () => LandingScreen, Provider, store);
+Navigation.registerComponentWithRedux('OrderOnlineScreen.CategoriesScreen', () => CategoriesScreen, Provider, store);
 Navigation.registerComponentWithRedux('OrderOnlineScreen.SecondScreen', () => ScreenA, Provider, store);
 Navigation.registerComponentWithRedux('OrderOnlineScreen.ThirdScreen', () => ScreenB, Provider, store);
 
