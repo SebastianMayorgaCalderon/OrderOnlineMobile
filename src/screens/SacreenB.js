@@ -8,18 +8,16 @@ class ScreenB extends Component {
         super(props);
     }
     render() {
-        const lista = this.props.todo.map((value) => <Text>{value.text}</Text>);
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text> Pantalla B </Text>
-                {lista}
             </View>
         );
     }
 }
-const mapStateToProps = state => {
+const mapStateToProps = ({auth}) => {
     return {
-        todo: state.todo.todo
+        email: auth.email
     };
 };
 const styles = StyleSheet.create({

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, TextInput, StyleSheet, ImageBackground, Dimensions } from 'react-native';
 import startTabs from '../../screens';
-import { addAllCategory } from '../../store/actions/index'
+import { addAllCategory, addEmail } from '../../store/actions/index'
 import { connect } from 'react-redux';
 import DefaultInput from '../../components/UI/DefaultInput/DefaultInput';
 import axios from '../../utility/axios-config';
@@ -64,6 +64,7 @@ class LandingScreen extends Component {
             if(response.data.length===0){
                 alert('Ese usuario no tiene ninguna categoria asociada');
             }else{
+                this.props.saveRestaurantAdminEmail(this.state.controls.email.value);
                 this.props.addAllCategory(response.data);
                 startTabs();
             }
@@ -133,7 +134,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addAllCategory: (categories) => dispatch(addAllCategory(categories))
+        addAllCategory: (categories) => dispatch(addAllCategory(categories)),
+        saveRestaurantAdminEmail: (email) => dispatch(addEmail(email))
     };
 };
 
