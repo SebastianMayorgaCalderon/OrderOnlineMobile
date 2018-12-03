@@ -24,6 +24,11 @@ const startTabs = () => {
                   }
                 ],
                 options: {
+                  topBar: {
+                    title: {
+                      text: 'Categorias'
+                    }
+                  },
                   bottomTab: {
                     text: 'Categorias',
                     icon: sources[1]

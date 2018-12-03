@@ -3,7 +3,7 @@ import { CATEGORY_SELECT, ADD_ALL_CATEGORIES, DESELECT_CATEGORY } from "./catego
 export const selectCategory = (id) => {
     return {
         type: CATEGORY_SELECT,
-        playload: id
+        payload: id
     }
 }
 export const addAllCategory = (categories) => {
