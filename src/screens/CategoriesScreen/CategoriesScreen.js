@@ -16,7 +16,7 @@ class CategoriesScreen extends Component {
       component: {
         name: 'OrderOnlineScreen.DishesScreen',
         passProps: {
-          text: category
+          selectedCategory: category
         },
         options: {
           topBar: {
@@ -36,11 +36,6 @@ class CategoriesScreen extends Component {
           categoryList={this.props.categoryList}
           onItemSelected={this.itemSelectedHandler}
         />
-        <Text>
-          {this.props.selectedCategory
-            ? this.props.selectedCategory.name
-            : null}
-        </Text>
       </ScrollView>
     );
   }

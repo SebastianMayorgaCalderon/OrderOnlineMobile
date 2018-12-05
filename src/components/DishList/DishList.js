@@ -3,16 +3,17 @@ import { StyleSheet, FlatList, Text, View } from "react-native";
 
 import ListItem from "../ListItem/ListItem";
 
-const categoryList = props => {
+const DishList = props => {
   return (
     <View>
       <FlatList
         style={styles.listContainer}
-        data={props.categoryList}
+        data={props.dishList}
         keyExtractor={item => `${item.id}`}
         renderItem={info => (
           <ListItem
             name={info.item.name}
+            image = {info.item.image}
             onItemPressed={() => props.onItemSelected(info.item.id)}
           />
         )}
@@ -27,4 +28,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default categoryList;
+export default DishList;

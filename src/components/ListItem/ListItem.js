@@ -7,11 +7,11 @@ const listItem = props => (
       {props.image ? (
         <Image
           resizeMode="cover"
-          source={props.placeImage}
-          style={styles.placeImage}
+          source={{uri: `data:image/jpg;base64,${props.image}`}}
+          style={styles.image}
         />
       ) : null}
-      <Text style = {styles.text}>{props.categoryName}</Text>
+      <Text style = {styles.text}>{props.name}</Text>
     </View>
   </TouchableOpacity>
 );
@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18
   },
-  placeImage: {
+  image: {
     marginRight: 8,
-    height: 30,
-    width: 30
+    height: 40,
+    width: 40
   }
 });
 
