@@ -13,7 +13,7 @@ class LandingScreen extends Component {
     state = {
         controls: {
             email: {
-                value: '',
+                value: 'sebasmayorga7@gmail.com',
                 valid: false,
                 touched: false,
                 validationRules: {
@@ -23,11 +23,11 @@ class LandingScreen extends Component {
                 }
             },
             numTable: {
-                value: null,
+                value: '5',
                 valid: false,
                 touched: false,
                 validationRules: {
-                    isNumeric: {
+                    isNumeric: {    
                         isNumeric: true
                     }
                 }
@@ -95,7 +95,7 @@ class LandingScreen extends Component {
                             onChangeText={(val) => this.updateInputState('numTable',val)}
                             value={this.state.controls.numTable.value}
                             valid = {this.state.controls.numTable.valid}/>
-                        <Button title='Ingresar' onPress={this.obtainCategories} disabled = {!this.state.controls.email.valid ||!this.state.controls.numTable.valid}></Button>
+                        <Button title='Ingresar' onPress={this.obtainCategories} ></Button>
                     </View>
                 </View>
             </ImageBackground>

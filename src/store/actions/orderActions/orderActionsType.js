@@ -1,0 +1,2 @@
+export const ADD_DISH_TO_ORDER = 'Order/ADD_DISH_TO_ORDER';
+export const REMOVE_DISH_FROM_ORDER = 'Order/REMOVE_DISH'
