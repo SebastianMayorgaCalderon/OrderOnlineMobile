@@ -11,7 +11,8 @@ export {
   selectDish,
   deselectDish,
   setErrorMessage,
-  setLoading
+  setLoading,
+  removeAllDishes
 } from "./dishesActions/dishesActions";
 
 export { addDish, removeDish } from "./orderActions/orderActions";

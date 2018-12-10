@@ -33,6 +33,7 @@ class DishDetail extends Component {
 
   componentWillUnmount() {
     Dimensions.removeEventListener("change", this.updateStyles);
+    this.props.onGoBack();
   }
 
   onCancel = () => {
@@ -52,10 +53,14 @@ class DishDetail extends Component {
     this.props.onRemoveDish(this.props.dish.id);
   }
   onAddOrRemoveDish = (value) => {
-      if(value > this.props.dishList.filter(item=> item.id === this.props.dish.id).length) {
+      if(!this.props.dishList.find(item=> item.id === this.props.dish.id)) {
           this.addDishToOrderHandler();
       }else{
+        if(this.props.dishList.find(item=> item.id === this.props.dish.id).amount<value){
+          this.addDishToOrderHandler();
+        }else{
           this.removeDishFromOrderHandler();
+        }
       }
   } 
   render() {
@@ -84,8 +89,11 @@ class DishDetail extends Component {
             <Text style={styles.dishDescription}>
               {this.props.dish.description}
             </Text>
+            <Text style={styles.dishDescription}>
+              {this.props.dish.price}$
+            </Text>
             <NumericInput
-              value={this.props.dishList.filter(item=> item.id === this.props.dish.id).length}
+              value={this.props.dishList.filter(item=> item.id === this.props.dish.id).length === 0? 0 : this.props.dishList.find(item=> item.id === this.props.dish.id).amount}
               onValueChange={value => this.onAddOrRemoveDish(value)}/>
             <TouchableOpacity onPress={this.onCancel}>
               <View style={styles.button}>
@@ -135,7 +143,9 @@ const styles = StyleSheet.create({
   dishDescriptionLandscape: {
     flex: 1,
     flexDirection: "column",
-    alignContent: "center"
+    alignContent: "center",
+    justifyContent: "center",
+    alignItems: "center"
   },
   dishDescriptionPortrait: {
     flex: 0,

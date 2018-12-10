@@ -1,14 +1,12 @@
 import { Navigation } from "react-native-navigation";
 import { Platform } from "react-native";
+import RF from "react-native-responsive-fontsize";
 import Icon from "react-native-vector-icons/Ionicons";
+import { SCREEN_BASE_NAME } from "./utility/constants";
 const startTabs = () => {
   Promise.all([
-    Icon.getImageSource(Platform.OS === "android" ? "md-map" : "ios-map", 30),
-    Icon.getImageSource(
-      Platform.OS === "android" ? "md-share" : "ios-share-alt",
-      30
-    ),
-    Icon.getImageSource(Platform.OS === "android" ? "md-beer" : "ios-menu", 30)
+    Icon.getImageSource(Platform.OS === "android" ? "md-beer" : "ios-beer", 30),
+    Icon.getImageSource(Platform.OS === "android" ? "md-paper" : "ios-paper",30)
   ]).then(sources => {
     Navigation.setRoot({
       root: {
@@ -19,53 +17,43 @@ const startTabs = () => {
                 children: [
                   {
                     component: {
-                      name: "OrderOnlineScreen.CategoriesScreen"
+                      name: `${SCREEN_BASE_NAME}CategoriesScreen`
                     }
                   }
                 ],
                 options: {
                   topBar: {
+                    labelStyles:{ fontSize: RF(4) },
                     title: {
                       text: 'Categorias'
                     }
                   },
                   bottomTab: {
                     text: 'Categorias',
+                    icon: sources[0]
+                  }
+                }
+              }
+            },
+            {
+              stack: {
+                children: [
+                  {
+                    component: {
+                      name: `${SCREEN_BASE_NAME}OrdersScreen`
+                    }
+                  }
+                ],
+                options: {
+                  topBar: {
+                    labelStyles:{ fontSize:RF(4) },
+                    title: {
+                      text: 'Orden'
+                    }
+                  },
+                  bottomTab: {
+                    text: "Ordenes",
                     icon: sources[1]
-                  }
-                }
-              }
-            },
-            {
-              stack: {
-                children: [
-                  {
-                    component: {
-                      name: "OrderOnlineScreen.SecondScreen"
-                    }
-                  }
-                ],
-                options: {
-                  bottomTab: {
-                    text: "Pantalla A",
-                    icon: sources[2]
-                  }
-                }
-              }
-            },
-            {
-              stack: {
-                children: [
-                  {
-                    component: {
-                      name: "OrderOnlineScreen.ThirdScreen"
-                    }
-                  }
-                ],
-                options: {
-                  bottomTab: {
-                    text: "Pantalla A",
-                    icon: sources[2]
                   }
                 }
               }

@@ -7,17 +7,17 @@ const NumericInput = props => (
     <TouchableOpacity onPress={()=>props.onValueChange(props.value - 1)} disabled = {props.value==0}>
       <View style={styles.button}>
         <Icon
-          size={30}
+          size={props.size? props.size:30}
           name={Platform.OS === "android" ? "md-remove" : "ios-remove"}
           color="#2dcaff"
         />
       </View>
     </TouchableOpacity>
-    <Text style ={styles.text}>{props.value}</Text>
+    <Text style ={[styles.text,{fontSize: props.size? props.size:30}]}>{props.value}</Text>
     <TouchableOpacity onPress={()=>props.onValueChange(props.value + 1)}>
       <View style={styles.button}>
         <Icon
-          size={30}
+          size={props.size? props.size:30}
           name={Platform.OS === "android" ? "md-add" : "ios-add"}
           color="#2dcaff"
         />
@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     text:{
-        fontSize:30
+      fontSize:30
     },
     button: {
       alignItems: "center",
-      margin:8
+      margin:12
     }
   });
   

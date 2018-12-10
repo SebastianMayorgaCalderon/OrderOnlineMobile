@@ -7,6 +7,7 @@ import ScreenB from './src/screens/SacreenB';
 import CategoriesScreen from './src/screens/CategoriesScreen/CategoriesScreen';
 import DishesScreen from './src/screens/DishesScreen/DishesScreen';
 import DishDetailScreen from './src/screens/DishDetailScreen/DishDetailScreen';
+import OrderScreen from './src/screens/OrderScreen/OrderScreen'
 
 import { Provider } from "react-redux";
 import configureStore  from './src/store/configureStore';
@@ -17,6 +18,7 @@ const store = configureStore();
 
 Navigation.registerComponentWithRedux(`${SCREEN_BASE_NAME}LandingScreen`, () => LandingScreen, Provider, store);
 Navigation.registerComponentWithRedux(`${SCREEN_BASE_NAME}CategoriesScreen`, () => CategoriesScreen, Provider, store);
+Navigation.registerComponentWithRedux(`${SCREEN_BASE_NAME}OrdersScreen`,()=>OrderScreen,Provider, store)
 Navigation.registerComponentWithRedux(`${SCREEN_BASE_NAME}DishesScreen`, () => DishesScreen, Provider, store);
 Navigation.registerComponentWithRedux(`${SCREEN_BASE_NAME}SecondScreen`, () => ScreenA, Provider, store);
 Navigation.registerComponentWithRedux(`${SCREEN_BASE_NAME}ThirdScreen`, () => ScreenB, Provider, store);
