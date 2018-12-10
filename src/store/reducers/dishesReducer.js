@@ -1,4 +1,4 @@
-import { ADD_ALL_DISHES, SELECT_DISH, DESELECT_DISH, SET_ERROR_MESSAGE, LOADING_DISHES } from '../actions/dishesActions/dishesActionTypes';
+import { ADD_ALL_DISHES, SELECT_DISH, DESELECT_DISH, SET_ERROR_MESSAGE, LOADING_DISHES, REMOVE_ALL_DISHES } from '../actions/dishesActions/dishesActionTypes';
 const initialState = {
     list: null,
     selectedDish: null,
@@ -33,6 +33,14 @@ const dishReducer = (state = initialState, action) => {
                 ...state,
                 loading: action.payload
             }
+        case REMOVE_ALL_DISHES: {
+            return {
+                list: null,
+                selectedDish: null,
+                errorMessage : null,
+                loading: false
+            }
+        }
         default:
             return state
     }

@@ -1,17 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import RF from "react-native-responsive-fontsize";
 
-const listItem = props => (
+
+const CategoryListItem = props => (
   <TouchableOpacity onPress={props.onItemPressed}>
     <View style={styles.listItem}>
-      {props.image ? (
-        <Image
-          resizeMode="cover"
-          source={{uri: `data:image/jpg;base64,${props.image}`}}
-          style={styles.image}
-        />
-      ) : null}
-      <Text style = {styles.text}>{props.name}</Text>
+      <Text style={styles.text}>{props.name}</Text>
     </View>
   </TouchableOpacity>
 );
@@ -26,13 +21,9 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   text: {
-    fontSize: 18
+    fontSize: RF(3.5)
   },
-  image: {
-    marginRight: 8,
-    height: 40,
-    width: 40
-  }
+
 });
 
-export default listItem;
+export default CategoryListItem;
